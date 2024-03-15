@@ -1,6 +1,4 @@
 name: RestApi
 version: 1.0.0
-author: Artem Grinko <javagrinko@gmail.com>
-main: ru.minejs.rest.api.Plugin
+main: ru.minejs.rest.api.Main
 description: REST-Api server plugin
-website: minejs.ru

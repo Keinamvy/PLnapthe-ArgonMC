@@ -7,12 +7,23 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    mavenLocal()
     maven {
-        url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+
+        // As of Gradle 5.1, you can limit this to only those
+        // dependencies you expect from it
+        content {
+            includeGroup 'org.bukkit'
+            includeGroup 'org.spigotmc'
+        }
     }
     maven {
+
         url 'http://nexus.hc.to/content/repositories/pub_releases'
     }
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url = 'https://oss.sonatype.org/content/repositories/central' }
 }
 
 
@@ -30,5 +41,6 @@ dependencies {
     compile 'com.sparkjava:spark-core:2.8.0'
     compile 'com.squareup.okhttp3:okhttp:3.9.1'
     compileOnly 'org.projectlombok:lombok:1.16.18'
-    compileOnly 'org.bukkit:bukkit:1.12.2-R0.1-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT'
+    compileOnly("net.md-5:bungeecord-api:1.19-R0.1-SNAPSHOT")
 }
